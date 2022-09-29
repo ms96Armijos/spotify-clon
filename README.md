@@ -1,4 +1,4 @@
-#Visit my portafolio
+# Visit my portafolio
 https://ms96armijos.github.io/ms96Armijos/
 
 # Image 
