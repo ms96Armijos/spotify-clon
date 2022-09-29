@@ -38,6 +38,7 @@ import { ImgBrokenDirective } from './directives/img-broken.directive';
     PlayListHeaderComponent,
     PlayListBodyComponent,
     OrderListPipe,
+    ImgBrokenDirective,
   ]
 })
 export class SharedModule { }

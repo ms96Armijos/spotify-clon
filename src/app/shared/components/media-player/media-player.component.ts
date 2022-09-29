@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
+import { MultimediaService } from '@shared/services/multimedia.service';
+import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-media-player',
   templateUrl: './media-player.component.html',
   styleUrls: ['./media-player.component.css']
 })
-export class MediaPlayerComponent implements OnInit {
+export class MediaPlayerComponent implements OnInit, OnDestroy {
 
 
   mockCover: TrackModel = {
@@ -16,10 +18,23 @@ export class MediaPlayerComponent implements OnInit {
     url: 'http://localhost/track.mp3',
     _id: 1
   }
-  constructor() { }
+
+
+  listObservers$: Array<Subscription> = [];
+
+  constructor(private _multimediaService: MultimediaService) { }
 
   ngOnInit(): void {
-    console.log('hello from media-player')
+    const observer1$: Subscription = this._multimediaService.callBack.subscribe((response: TrackModel)=>{
+
+      console.log('cancion recibida: ',response)
+    });
+    this.listObservers$ = [observer1$];
+  }
+
+  ngOnDestroy(): void {
+    console.log('unsubscribed')
+    this.listObservers$.forEach(u => u.unsubscribe());
   }
 
 }
