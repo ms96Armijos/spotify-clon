@@ -37,7 +37,7 @@ export class TracksPageComponent implements OnInit {
   }
 
   loadDataRandom(){
-    this._trackService.getallTracksRandom$().subscribe((response: TrackModel[]) => {
+    this._trackService.getallTracks$().subscribe((response: TrackModel[]) => {
       this.tracksRandom = response;
     });
   }

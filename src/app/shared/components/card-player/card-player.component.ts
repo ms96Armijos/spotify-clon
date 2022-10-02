@@ -8,7 +8,7 @@ import { MultimediaService } from '@shared/services/multimedia.service';
   styleUrls: ['./card-player.component.css']
 })
 export class CardPlayerComponent implements OnInit {
-  @Input() mode: 'small' | 'big' = 'big';
+  @Input() mode: 'small' | 'big' = 'small';
   @Input() track!: TrackModel;
 
 
@@ -20,7 +20,7 @@ export class CardPlayerComponent implements OnInit {
   }
 
   sendPlay(track: TrackModel): void{
-    this._multimediaService.callBack.emit(track);
+    this._multimediaService.trackInfo$.next(track);
   }
 
 }

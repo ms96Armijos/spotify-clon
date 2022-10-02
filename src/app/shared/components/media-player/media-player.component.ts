@@ -11,30 +11,17 @@ import { Subscription } from 'rxjs'
 export class MediaPlayerComponent implements OnInit, OnDestroy {
 
 
-  mockCover: TrackModel = {
-    cover: 'https://jenesaispop.com/wp-content/uploads/2009/09/guetta_onelove.jpg',
-    album: 'One Love',
-    name: 'Getting Over',
-    url: 'http://localhost/track.mp3',
-    _id: 1
-  }
+  mockCover!: TrackModel;
 
 
   listObservers$: Array<Subscription> = [];
 
-  constructor(private _multimediaService: MultimediaService) { }
+  constructor(public _multimediaService: MultimediaService) { }
 
   ngOnInit(): void {
     
-    const observable1$ = this._multimediaService.myObservable3$
-    .subscribe(
-      (responseOK) =>{
-        console.log('todo OK', responseOK)
-      },
-      (responseFAIL) =>{
-        console.log('todo MAL', responseFAIL)
-      }
-    );
+    
+    
   }
 
   ngOnDestroy(): void {

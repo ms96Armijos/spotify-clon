@@ -37,7 +37,7 @@ export class TrackService {
   getallTracksRandom$(): Observable<any>{
     return this._httpClient.get(`${this.URL}/tracks`)
     .pipe(
-      mergeMap(({data}: any)=> this.skipById(data, 1)),
+      mergeMap(({data}: any)=> this.skipById(data, 2)),
       tap(data => console.log('🎉🎉🎉', data)),
       catchError((err) => {
         const { status, statusText} = err;
