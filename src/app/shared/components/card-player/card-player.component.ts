@@ -9,7 +9,7 @@ import { MultimediaService } from '@shared/services/multimedia.service';
 })
 export class CardPlayerComponent implements OnInit {
   @Input() mode: 'small' | 'big' = 'small';
-  @Input() track!: TrackModel;
+  @Input() track: TrackModel= { _id: 0, name: '', album: '', url: '', cover: '' };
 
 
 
