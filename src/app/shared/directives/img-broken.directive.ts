@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 })
 export class ImgBrokenDirective {
 
-  //@Input() customImg: string = '';
+  //@Input() customImg: string | boolean = false;
   @HostListener('error') handleError(): void {
     const elementoNativo = this.elHost.nativeElement;
     elementoNativo.src = '../../../assets/images/imgbroke.png'
